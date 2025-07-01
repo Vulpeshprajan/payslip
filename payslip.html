@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timesheet & Payslip Generator (Fortnightly)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <!-- Company Header -->
+    <div class="company-header">
+        <!-- Replace src with your actual logo file or use the provided image -->
+        <img src="zxa-logo.png" alt="ZXA Solutions Logo" class="company-logo">
+        <div class="company-name">ZXA SOLUTIONS </div>
+    </div>
+    <form id="timesheetForm">
+        <div class="form-row">
+            <label>Employee Name: <input type="text" id="employeeName" required></label>
+            <label>Base Rate ($/hr): <input type="number" id="baseRate" min="0" step="0.01" value="" required></label>
+            <label>
+                Pay Period:
+                <input type="date" id="payPeriodStart" required> to
+                <input type="date" id="payPeriodEnd" required>
+            </label>
+        </div>
+        <div class="weeks-row">
+            <div class="week-col">
+                <h3>Week 1</h3>
+                <table>
+                    <tr><th>Day</th><th>Hours</th><th>Shift Penalty?</th></tr>
+                    <tr><td>Monday</td><td><input type="number" id="mon1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="monNight1"></td></tr>
+                    <tr><td>Tuesday</td><td><input type="number" id="tue1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="tueNight1"></td></tr>
+                    <tr><td>Wednesday</td><td><input type="number" id="wed1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="wedNight1"></td></tr>
+                    <tr><td>Thursday</td><td><input type="number" id="thu1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="thuNight1"></td></tr>
+                    <tr><td>Friday</td><td><input type="number" id="fri1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="friNight1"></td></tr>
+                    <tr><td>Saturday</td><td><input type="number" id="sat1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="satNight1"></td></tr>
+                    <tr><td>Sunday</td><td><input type="number" id="sun1" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="sunNight1"></td></tr>
+                </table>
+            </div>
+            <div class="week-col">
+                <h3>Week 2</h3>
+                <table>
+                    <tr><th>Day</th><th>Hours</th><th>Shift Penalty?</th></tr>
+                    <tr><td>Monday</td><td><input type="number" id="mon2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="monNight2"></td></tr>
+                    <tr><td>Tuesday</td><td><input type="number" id="tue2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="tueNight2"></td></tr>
+                    <tr><td>Wednesday</td><td><input type="number" id="wed2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="wedNight2"></td></tr>
+                    <tr><td>Thursday</td><td><input type="number" id="thu2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="thuNight2"></td></tr>
+                    <tr><td>Friday</td><td><input type="number" id="fri2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="friNight2"></td></tr>
+                    <tr><td>Saturday</td><td><input type="number" id="sat2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="satNight2"></td></tr>
+                    <tr><td>Sunday</td><td><input type="number" id="sun2" min="0" max="24" step="0.01" value="0"></td><td><input type="checkbox" id="sunNight2"></td></tr>
+                </table>
+            </div>
+        </div>
+        <button type="submit">Generate Payslip</button>
+    </form>
+    <button type="button" id="printPayslip" class="print-btn" style="display:none;">Print / Export PDF</button>
+    <div id="payslipResult" class="payslip-print"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
